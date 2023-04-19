@@ -24,6 +24,7 @@ export type FilesCoverage = {
 }
 
 export function parseCoverageReport(report: string, files: CommitsComparison): FilesCoverage {
+  core.debug('hello')
   const threshAll = parseFloat(core.getInput('thresholdAll'))
   const avgCover = parseAverageCoverage(report, threshAll)
 
