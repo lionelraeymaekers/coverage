@@ -138,6 +138,7 @@ function parseSource(report) {
     if ((match === null || match === void 0 ? void 0 : match.groups) && match.length === 2) {
         const source = match.groups['source'].replace(`${process.cwd()}/`, '');
         core.info(`source: ${source}`);
+    	core.debug(`hello from the other side`);
         return source;
     }
     else {
