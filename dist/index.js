@@ -125,6 +125,7 @@ function parseFilesCoverage(report, source, files, threshold) {
     const coverages = files === null || files === void 0 ? void 0 : files.map(file => {
         const fileName = file.replace(`${source}/`, '').replace(/\//g, '\\/');
         const regex = new RegExp(`.*filename="${fileName}".*line-rate="(?<cover>[0-9]+[.]*[0-9]*)".*`);
+    	core.debug('Looking for line with regex: .*filename="${fileName}".*line-rate="(?<cover>[0-9]+[.]*[0-9]*)".*')
         const match = report.match(regex);
         const cover = (match === null || match === void 0 ? void 0 : match.groups) ? parseFloat(match.groups['cover']) : -1;
         return { file, cover, pass: cover >= threshold };
