@@ -45,6 +45,7 @@ export function parseFilesCoverage(
   const coverages = files?.map(file => {
     const fileName = file.replace(`${source}/`, '').replace(/\//g, '\\/')
     const regex = new RegExp(`.*filename="${fileName}".*line-rate="(?<cover>[0-9]+[.]*[0-9]*)".*`)
+    core.debug('Looking for line with regex: .*filename="${fileName}".*line-rate="(?<cover>[0-9]+[.]*[0-9]*)".*')
     const match = report.match(regex)
     const cover = match?.groups ? parseFloat(match.groups['cover']) : -1
     return {file, cover, pass: cover >= threshold}
