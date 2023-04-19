@@ -9,6 +9,7 @@ async function run(): Promise<void> {
   try {
     const coverageFile: string = core.getInput('coverageFile', {required: true})
     core.debug(`coverageFile: ${coverageFile}`)
+    core.debug(`hello`)
 
     const eventName = context.eventName
     if (eventName !== 'pull_request') {
