@@ -42,6 +42,7 @@ export function parseFilesCoverage(
   files: string[] | undefined,
   threshold: number
 ): Coverage[] | undefined {
+  core.debug('Looking for files in ${report}')
   const coverages = files?.map(file => {
     const fileName = file.replace(`${source}/`, '').replace(/\//g, '\\/')
     const regex = new RegExp(`.*filename="${fileName}".*line-rate="(?<cover>[0-9]+[.]*[0-9]*)".*`)
